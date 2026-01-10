@@ -145,29 +145,19 @@
         "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
         "editor.formatOnSave": true,
         "editor.tabSize": 4,
-        "editor.insertSpaces": true,
-        "editor.rulers": [
-            80,
-            120
-        ],
+        "editor.insertSpaces": false, // Enforces Tab character
         "editor.semanticHighlighting.enabled": true
     },
     "[cpp]": {
         "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
         "editor.formatOnSave": true,
         "editor.tabSize": 4,
-        "editor.insertSpaces": true,
-        "editor.rulers": [
-            80,
-            120
-        ],
+        "editor.insertSpaces": false, // Enforces Tab character
         "editor.semanticHighlighting.enabled": true
     },
     "C_Cpp.intelliSenseEngine": "disabled",
     "C_Cpp.autocomplete": "disabled",
     "C_Cpp.errorSquiggles": "disabled",
-    "C_Cpp.codeAnalysis.clangTidy.enabled": false,
-    "clangd.detectExtensionConflicts": false,
     "clangd.arguments": [
         "--background-index",
         "--clang-tidy",
@@ -175,7 +165,7 @@
         "--header-insertion=iwyu",
         "--header-insertion-decorators",
         "--pch-storage=memory",
-        "--fallback-style={BasedOnStyle: LLVM, IndentWidth: 4, TabWidth: 4, UseTab: Never, BreakBeforeBraces: Allman, ColumnLimit: 0, AllowShortFunctionsOnASingleLine: None}",
+        "--fallback-style=LLVM", // Simplified: Let .clang-format do the heavy lifting
         "--inlay-hints=false"
     ],
     // ╔══════════════════════════════════════════════════════════════════════════╗
@@ -217,4 +207,3 @@
     "telemetry.telemetryLevel": "off",
     "security.workspace.trust.untrustedFiles": "open"
 }
-
