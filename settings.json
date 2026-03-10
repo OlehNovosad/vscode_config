@@ -30,6 +30,7 @@
   "explorer.compactFolders": true,
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
+  "explorer.autoReveal": false,
   "explorer.fileNesting.patterns": {
     "CMakeLists.txt": "CMakePresets.json, cmake_install.cmake, CTestTestfile.cmake, .clang-format, .clang-tidy, .clangd",
     "Cargo.toml": "Cargo.lock, rust-toolchain.toml, .rustfmt.toml, clippy.toml, .cargo",
@@ -56,11 +57,13 @@
   "editor.cursorSurroundingLines": 10,
   "editor.smoothScrolling": true,
   "editor.stickyScroll.enabled": true,
+  "editor.stickyScroll.scrollWithEditor": true,
   "editor.rulers": [
     80,
     120
   ],
   "editor.renderWhitespace": "selection",
+  "editor.renderControlCharacters": true,
   "editor.trimAutoWhitespace": true,
   "editor.renderLineHighlight": "all",
   "editor.guides.bracketPairs": true,
@@ -69,14 +72,16 @@
   "editor.linkedEditing": true,
   "editor.unicodeHighlight.ambiguousCharacters": true,
   "editor.rename.enablePreview": true,
-  "editor.occurrencesHighlight": "off",
-  "editor.find.seedSearchStringFromSelection": "selection",
+  "editor.occurrencesHighlight": "multiFile",
+  "editor.find.seedSearchStringFromSelection": "always",
   "editor.gotoLocation.multipleDefinitions": "goto",
   "editor.gotoLocation.multipleReferences": "goto",
   "editor.gotoLocation.multipleImplementations": "goto",
   "editor.gotoLocation.multipleTypeDefinitions": "goto",
   "editor.accessibilitySupport": "off",
   "editor.minimap.enabled": false,
+  "editor.semanticHighlighting.enabled": true,
+  "editor.defaultColorDecorators": "always",
   "breadcrumbs.enabled": true,
   // ╔══════════════════════════════════════════════════════════════════════════╗
   // ║                       💡 INTELLISENSE & SUGGESTIONS                     ║
@@ -100,7 +105,7 @@
   // ╔══════════════════════════════════════════════════════════════════════════╗
   // ║                       🔧 FORMATTING & CODE ACTIONS                      ║
   // ╚══════════════════════════════════════════════════════════════════════════╝
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "editor.formatOnType": false,
   "editor.formatOnPaste": false,
   "editor.codeActionsOnSave": {
@@ -129,7 +134,8 @@
     "**/build/**": true,
     "**/cmake-build-*/**": true,
     "**/target/**": true,
-    "**/.venv/**": true
+    "**/.venv/**": true,
+    "**/.tox/**": true
   },
   "files.associations": {
     "*.ld": "c",
@@ -141,6 +147,7 @@
   // ╚══════════════════════════════════════════════════════════════════════════╝
   "search.smartCase": true,
   "search.showLineNumbers": true,
+  "search.useIgnoreFiles": true,
   "search.exclude": {
     "**/build": true,
     "**/cmake-build-*": true,
@@ -185,7 +192,8 @@
     "--header-insertion=iwyu",
     "--header-insertion-decorators",
     "--pch-storage=memory",
-    "--fallback-style=none"
+    "--fallback-style=none",
+    "-j=4"
   ],
   // ╔══════════════════════════════════════════════════════════════════════════╗
   // ║                            🔧 CMAKE                                     ║
@@ -226,7 +234,11 @@
       88,
       120
     ],
-    "editor.semanticHighlighting.enabled": true
+    "editor.semanticHighlighting.enabled": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.ruff": "explicit",
+      "source.organizeImports.ruff": "explicit"
+    }
   },
   "python.languageServer": "Pylance",
   "python.analysis.completeFunctionParens": true,
@@ -345,13 +357,16 @@
   "terminal.integrated.scrollback": 50000,
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.gpuAcceleration": "on",
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "terminal.integrated.defaultProfile.linux": "bash",
   // ╔══════════════════════════════════════════════════════════════════════════╗
   // ║                          📊 DIFF EDITOR                                 ║
   // ╚══════════════════════════════════════════════════════════════════════════╝
-  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.ignoreTrimWhitespace": true,
+  "diffEditor.renderSideBySide": true,
+  "diffEditor.wordWrap": "on",
   // ╔══════════════════════════════════════════════════════════════════════════╗
   // ║                          🌐 GIT                                         ║
   // ╚══════════════════════════════════════════════════════════════════════════╝
@@ -362,19 +377,22 @@
   "git.decorations.enabled": true,
   "git.openAfterClone": "always",
   "git.pruneOnFetch": true,
+  "git.rebaseWhenSync": true,
   "scm.defaultViewMode": "tree",
   // ╔══════════════════════════════════════════════════════════════════════════╗
   // ║                          🐛 DEBUG                                       ║
   // ╚══════════════════════════════════════════════════════════════════════════╝
   "debug.openDebug": "openOnDebugBreak",
+  "debug.toolBarLocation": "docked",
   // ╔══════════════════════════════════════════════════════════════════════════╗
   // ║                          🤖 COPILOT & EXTENSIONS                        ║
   // ╚══════════════════════════════════════════════════════════════════════════╝
   "github.copilot.enable": {
     "*": true,
-    "plaintext": true,
+    "plaintext": false,
     "markdown": true,
-    "scminput": false
+    "scminput": false,
+    "yaml": false
   },
   "vsicons.dontShowNewVersionMessage": true,
   "gitlens.ai.model": "vscode",
