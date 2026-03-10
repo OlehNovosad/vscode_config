@@ -1,209 +1,397 @@
 {
-    // ╔══════════════════════════════════════════════════════════════════════════╗
-    // ║                        🎨 APPEARANCE & THEME                             ║
-    // ╚══════════════════════════════════════════════════════════════════════════╝
-    "workbench.iconTheme": "vscode-icons",
-    "workbench.startupEditor": "none",
-    "workbench.tree.indent": 16,
-    "workbench.tree.renderIndentGuides": "always",
-    "workbench.editor.highlightModifiedTabs": true,
-    "workbench.editor.labelFormat": "short",
-    "workbench.colorTheme": "Visual Studio Dark - C++",
-    // ╔══════════════════════════════════════════════════════════════════════════╗
-    // ║                        ✏️ EDITOR CORE SETTINGS                           ║
-    // ╚══════════════════════════════════════════════════════════════════════════╝
-    "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', Consolas, monospace",
-    "editor.fontSize": 13,
-    "editor.fontLigatures": true,
-    "editor.lineHeight": 22,
-    "editor.letterSpacing": 0.5,
-    "editor.fontWeight": "400",
-    "editor.cursorBlinking": "phase",
-    "editor.cursorStyle": "line",
-    "editor.cursorSmoothCaretAnimation": "on",
-    "editor.smoothScrolling": true,
-    "editor.scrollBeyondLastLine": true,
-    "editor.mouseWheelZoom": true,
-    "editor.stickyScroll.enabled": true,
+  // ╔══════════════════════════════════════════════════════════════════════════╗
+  // ║                        🎨 APPEARANCE & THEME                            ║
+  // ╚══════════════════════════════════════════════════════════════════════════╝
+  "workbench.colorTheme": "Experimental Dark",
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.startupEditor": "none",
+  "workbench.tree.indent": 16,
+  "workbench.tree.renderIndentGuides": "always",
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.labelFormat": "short",
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.revealIfOpen": true,
+  "workbench.editor.closeOnFileDelete": true,
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.editor.pinnedTabSizing": "compact",
+  "workbench.editor.wrapTabs": false,
+  "workbench.list.smoothScrolling": true,
+  "workbench.colorCustomizations": {
+    "editorBracketHighlight.foreground1": "#FFD700",
+    "editorBracketHighlight.foreground2": "#DA70D6",
+    "editorBracketHighlight.foreground3": "#179FFF",
+    "editorBracketHighlight.foreground4": "#FF8C00",
+    "editorBracketHighlight.foreground5": "#00CED1",
+    "editorBracketHighlight.foreground6": "#98C379"
+  },
+  "window.title": "${dirty}${activeEditorMedium}${separator}${rootName}",
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.compactFolders": true,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "CMakeLists.txt": "CMakePresets.json, cmake_install.cmake, CTestTestfile.cmake, .clang-format, .clang-tidy, .clangd",
+    "Cargo.toml": "Cargo.lock, rust-toolchain.toml, .rustfmt.toml, clippy.toml, .cargo",
+    "pyproject.toml": "poetry.lock, setup.py, setup.cfg, MANIFEST.in, .flake8, .pylintrc, pyrightconfig.json, ruff.toml",
+    "Dockerfile": ".dockerignore, docker-compose*.yml, docker-compose*.yaml",
+    "*.c": "$(capture).h",
+    "*.cpp": "$(capture).h, $(capture).hpp",
+    "*.rs": "$(capture).*.rs"
+  },
+  // ╔══════════════════════════════════════════════════════════════════════════╗
+  // ║                        ✏️ EDITOR CORE                                    ║
+  // ╚══════════════════════════════════════════════════════════════════════════╝
+  "editor.fontFamily": "'JetBrains Mono', Consolas, monospace",
+  "editor.fontSize": 13,
+  "editor.fontLigatures": true,
+  "editor.lineHeight": 22,
+  "editor.letterSpacing": 0.5,
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.wordWrap": "off",
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorSurroundingLines": 10,
+  "editor.smoothScrolling": true,
+  "editor.stickyScroll.enabled": true,
+  "editor.rulers": [
+    80,
+    120
+  ],
+  "editor.renderWhitespace": "selection",
+  "editor.trimAutoWhitespace": true,
+  "editor.renderLineHighlight": "all",
+  "editor.guides.bracketPairs": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.matchBrackets": "always",
+  "editor.linkedEditing": true,
+  "editor.unicodeHighlight.ambiguousCharacters": true,
+  "editor.rename.enablePreview": true,
+  "editor.occurrencesHighlight": "off",
+  "editor.find.seedSearchStringFromSelection": "selection",
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "editor.gotoLocation.multipleReferences": "goto",
+  "editor.gotoLocation.multipleImplementations": "goto",
+  "editor.gotoLocation.multipleTypeDefinitions": "goto",
+  "editor.accessibilitySupport": "off",
+  "editor.minimap.enabled": false,
+  "breadcrumbs.enabled": true,
+  // ╔══════════════════════════════════════════════════════════════════════════╗
+  // ║                       💡 INTELLISENSE & SUGGESTIONS                     ║
+  // ╚══════════════════════════════════════════════════════════════════════════╝
+  "editor.suggestSelection": "first",
+  "editor.suggest.insertMode": "replace",
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+  "editor.suggest.showStatusBar": true,
+  "editor.suggest.preview": true,
+  "editor.snippetSuggestions": "inline",
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
+  },
+  "editor.acceptSuggestionOnEnter": "on",
+  "editor.wordBasedSuggestions": "matchingDocuments",
+  "editor.inlineSuggest.enabled": true,
+  "editor.inlayHints.enabled": "offUnlessPressed",
+  "editor.parameterHints.enabled": true,
+  // ╔══════════════════════════════════════════════════════════════════════════╗
+  // ║                       🔧 FORMATTING & CODE ACTIONS                      ║
+  // ╚══════════════════════════════════════════════════════════════════════════╝
+  "editor.formatOnSave": false,
+  "editor.formatOnType": false,
+  "editor.formatOnPaste": false,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit",
+    "source.fixAll": "explicit"
+  },
+  // ╔══════════════════════════════════════════════════════════════════════════╗
+  // ║                        💾 FILES & SAVE                                  ║
+  // ╚══════════════════════════════════════════════════════════════════════════╝
+  "files.autoSave": "off",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.exclude": {
+    "**/.cache": true,
+    "**/.git": true,
+    "**/__pycache__": true,
+    "**/*.pyc": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/desktop.ini": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/node_modules/**": true,
+    "**/build/**": true,
+    "**/cmake-build-*/**": true,
+    "**/target/**": true,
+    "**/.venv/**": true
+  },
+  "files.associations": {
+    "*.ld": "c",
+    "*.conf": "ini",
+    ".env*": "dotenv"
+  },
+  // ╔══════════════════════════════════════════════════════════════════════════╗
+  // ║                          🔍 SEARCH                                      ║
+  // ╚══════════════════════════════════════════════════════════════════════════╝
+  "search.smartCase": true,
+  "search.showLineNumbers": true,
+  "search.exclude": {
+    "**/build": true,
+    "**/cmake-build-*": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/desktop.ini": true,
+    "**/node_modules": true,
+    "**/*.pyc": true,
+    "**/target": true,
+    "**/.venv": true,
+    "**/*.o": true,
+    "**/*.obj": true,
+    "**/*.elf": true,
+    "**/*.exe": true,
+    "**/*.hex": true,
+    "**/*.bin": true
+  },
+  // ╔══════════════════════════════════════════════════════════════════════════╗
+  // ║                          ⚡ C / C++ (CLANGD)                            ║
+  // ╚══════════════════════════════════════════════════════════════════════════╝
+  "[c]": {
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
+    "editor.formatOnSave": true,
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
-    "editor.detectIndentation": false,
-    "editor.renderWhitespace": "selection",
-    "editor.trimAutoWhitespace": true,
-    "editor.bracketPairColorization.enabled": true,
-    "editor.guides.bracketPairs": "active",
-    "editor.guides.indentation": true,
-    "editor.guides.highlightActiveIndentation": true,
-    "editor.renderLineHighlight": "all",
-    "editor.minimap.enabled": true,
-    "editor.minimap.renderCharacters": false,
-    "editor.minimap.maxColumn": 80,
-    "breadcrumbs.enabled": true,
-    "breadcrumbs.filePath": "on",
-    "breadcrumbs.symbolPath": "on",
-    // ╔══════════════════════════════════════════════════════════════════════════╗
-    // ║                       💡 INTELLISENSE & SUGGESTIONS                      ║
-    // ╚══════════════════════════════════════════════════════════════════════════╝
-    "editor.suggestSelection": "first",
-    "editor.snippetSuggestions": "inline",
-    "editor.quickSuggestions": {
-        "other": true,
-        "comments": false,
-        "strings": true
-    },
-    "editor.acceptSuggestionOnEnter": "on",
-    "editor.wordBasedSuggestions": "matchingDocuments",
-    "editor.suggest.snippetsPreventQuickSuggestions": false,
-    "editor.suggest.showStatusBar": true,
-    "editor.suggest.preview": true,
-    "editor.inlineSuggest.enabled": true,
-    "editor.inlayHints.enabled": "offUnlessPressed",
-    "editor.parameterHints.enabled": true,
-    // ╔══════════════════════════════════════════════════════════════════════════╗
-    // ║                        💾 FILE & AUTO-SAVE                               ║
-    // ╚══════════════════════════════════════════════════════════════════════════╝
-    "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 1000,
-    "files.trimTrailingWhitespace": true,
-    "files.insertFinalNewline": true,
-    "files.exclude": {
-        "**/.cache": true,
-        "**/.git": true,
-        "**/__pycache__": true,
-        "**/*.pyc": true,
-        "**/build": true
-    },
-    "files.watcherExclude": {
-        "**/build/**": true,
-        "**/.git/objects/**": true,
-        "**/node_modules/**": true
-    },
-    // ╔══════════════════════════════════════════════════════════════════════════╗
-    // ║                       🔧 FORMATTING & CODE ACTIONS                      ║
-    // ╚══════════════════════════════════════════════════════════════════════════╝
+    "editor.semanticHighlighting.enabled": true
+  },
+  "[cpp]": {
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
     "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "editor.formatOnPaste": true,
-    "editor.codeActionsOnSave": {
-        "source.organizeImports": "explicit",
-        "source.fixAll": "explicit"
-    },
-    // ╔══════════════════════════════════════════════════════════════════════════╗
-    // ║                        ⚠️ ERROR LENS                                     ║
-    // ╚══════════════════════════════════════════════════════════════════════════╝
-    "errorLens.enabled": true,
-    "errorLens.fontWeight": "500",
-    "errorLens.fontSize": "85%",
-    "errorLens.delay": 500,
-    "errorLens.enabledDiagnosticLevels": [
-        "error",
-        "warning"
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.semanticHighlighting.enabled": true
+  },
+  "C_Cpp.intelliSenseEngine": "disabled",
+  "C_Cpp.autocomplete": "disabled",
+  "C_Cpp.errorSquiggles": "disabled",
+  "clangd.arguments": [
+    "--background-index",
+    "--clang-tidy",
+    "--completion-style=detailed",
+    "--header-insertion=iwyu",
+    "--header-insertion-decorators",
+    "--pch-storage=memory",
+    "--fallback-style=none"
+  ],
+  // ╔══════════════════════════════════════════════════════════════════════════╗
+  // ║                            🔧 CMAKE                                     ║
+  // ╚══════════════════════════════════════════════════════════════════════════╝
+  "cmake.configureSettings": {
+    "CMAKE_CXX_STANDARD": "20",
+    "CMAKE_CXX_STANDARD_REQUIRED": "ON"
+  },
+  "cmake.buildDirectory": "${workspaceFolder}/build",
+  // ╔══════════════════════════════════════════════════════════════════════════╗
+  // ║                          🦀 RUST                                        ║
+  // ╚══════════════════════════════════════════════════════════════════════════╝
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    "editor.tabSize": 4,
+    "editor.rulers": [
+      100
     ],
-    "errorLens.messageEnabled": true,
-    "errorLens.statusBarMessageEnabled": true,
-    "errorLens.gutterIconsEnabled": true,
-    "errorLens.gutterIconSize": "80%",
-    "errorLens.messageTemplate": "$message",
-    "errorLens.messageMaxChars": 200,
-    "errorLens.excludeBySource": [],
-    "errorLens.scrollbarHackEnabled": false,
-    // ╔══════════════════════════════════════════════════════════════════════════╗
-    // ║                           🐍 PYTHON                                      ║
-    // ╚══════════════════════════════════════════════════════════════════════════╝
-    "[python]": {
-        "editor.defaultFormatter": "charliermarsh.ruff",
-        "editor.tabSize": 4,
-        "editor.rulers": [
-            88,
-            120
-        ],
-        "editor.semanticHighlighting.enabled": true
-    },
-    "python.languageServer": "Pylance",
-    "python.analysis.typeCheckingMode": "basic",
-    "python.analysis.autoImportCompletions": true,
-    "python.analysis.completeFunctionParens": true,
-    "python.analysis.diagnosticMode": "openFilesOnly",
-    "python.analysis.indexing": true,
-    "python.analysis.inlayHints.variableTypes": false,
-    "python.analysis.inlayHints.functionReturnTypes": false,
-    "python.analysis.inlayHints.callArgumentNames": "off",
-    "python.analysis.inlayHints.pytestParameters": false,
-    "python.analysis.diagnosticSeverityOverrides": {
-        "reportMissingTypeStubs": "none"
-    },
-    "ruff.enable": true,
-    "ruff.organizeImports": true,
-    "ruff.fixAll": true,
-    "ruff.nativeServer": "on",
-    "python.testing.pytestEnabled": true,
-    "python.testing.autoTestDiscoverOnSaveEnabled": true,
-    // ╔══════════════════════════════════════════════════════════════════════════╗
-    // ║                          ⚡ C / C++ (CLANGD ONLY)                        ║
-    // ╚══════════════════════════════════════════════════════════════════════════╝
-    "[c]": {
-        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
-        "editor.formatOnSave": true,
-        "editor.tabSize": 4,
-        "editor.insertSpaces": false, // Enforces Tab character
-        "editor.semanticHighlighting.enabled": true
-    },
-    "[cpp]": {
-        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
-        "editor.formatOnSave": true,
-        "editor.tabSize": 4,
-        "editor.insertSpaces": false, // Enforces Tab character
-        "editor.semanticHighlighting.enabled": true
-    },
-    "C_Cpp.intelliSenseEngine": "disabled",
-    "C_Cpp.autocomplete": "disabled",
-    "C_Cpp.errorSquiggles": "disabled",
-    "clangd.arguments": [
-        "--background-index",
-        "--clang-tidy",
-        "--completion-style=detailed",
-        "--header-insertion=iwyu",
-        "--header-insertion-decorators",
-        "--pch-storage=memory",
-        "--fallback-style=LLVM", // Simplified: Let .clang-format do the heavy lifting
-        "--inlay-hints=false"
+    "editor.semanticHighlighting.enabled": true,
+    "editor.inlayHints.enabled": "offUnlessPressed"
+  },
+  "rust-analyzer.check.command": "clippy",
+  "rust-analyzer.checkOnSave": true,
+  "rust-analyzer.procMacro.enable": true,
+  "rust-analyzer.files.watcher": "client",
+  "rust-analyzer.diagnostics.styleLints.enable": true,
+  "rust-analyzer.inlayHints.typeHints.enable": false,
+  "rust-analyzer.inlayHints.parameterHints.enable": false,
+  "rust-analyzer.inlayHints.chainingHints.enable": false,
+  "rust-analyzer.cargo.features": "all",
+  // ╔══════════════════════════════════════════════════════════════════════════╗
+  // ║                           🐍 PYTHON                                     ║
+  // ╚══════════════════════════════════════════════════════════════════════════╝
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.tabSize": 4,
+    "editor.rulers": [
+      88,
+      120
     ],
-    // ╔══════════════════════════════════════════════════════════════════════════╗
-    // ║                          🦀 RUST                                         ║
-    // ╚══════════════════════════════════════════════════════════════════════════╝
-    "[rust]": {
-        "editor.defaultFormatter": "rust-lang.rust-analyzer",
-        "editor.tabSize": 4,
-        "editor.rulers": [
-            100
-        ],
-        "editor.semanticHighlighting.enabled": true,
-        "editor.inlayHints.enabled": "offUnlessPressed"
-    },
-    "rust-analyzer.check.command": "clippy",
-    "rust-analyzer.checkOnSave": true,
-    "rust-analyzer.procMacro.enable": true,
-    "rust-analyzer.files.watcher": "client",
-    "rust-analyzer.diagnostics.styleLints.enable": true,
-    "rust-analyzer.inlayHints.typeHints.enable": false,
-    "rust-analyzer.inlayHints.parameterHints.enable": false,
-    "rust-analyzer.inlayHints.chainingHints.enable": false,
-    // ╔══════════════════════════════════════════════════════════════════════════╗
-    // ║                          💻 TERMINAL                                    ║
-    // ╚══════════════════════════════════════════════════════════════════════════╝
-    "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
-    "terminal.integrated.fontSize": 13,
-    "terminal.integrated.cursorBlinking": true,
-    "terminal.integrated.scrollback": 10000,
-    // ╔══════════════════════════════════════════════════════════════════════════╗
-    // ║                          🌐 GIT                                         ║
-    // ╚══════════════════════════════════════════════════════════════════════════╝
-    "git.autofetch": true,
-    "git.enableSmartCommit": true,
-    "git.confirmSync": false,
-    // ╔══════════════════════════════════════════════════════════════════════════╗
-    // ║                          🔒 PRIVACY                                     ║
-    // ╚══════════════════════════════════════════════════════════════════════════╝
-    "telemetry.telemetryLevel": "off",
-    "security.workspace.trust.untrustedFiles": "open"
+    "editor.semanticHighlighting.enabled": true
+  },
+  "python.languageServer": "Pylance",
+  "python.analysis.completeFunctionParens": true,
+  "python.analysis.indexing": true,
+  "python.analysis.inlayHints.variableTypes": false,
+  "python.analysis.inlayHints.functionReturnTypes": false,
+  "python.analysis.inlayHints.callArgumentNames": "off",
+  "python.analysis.inlayHints.pytestParameters": false,
+  "ruff.enable": true,
+  "ruff.organizeImports": true,
+  "ruff.fixAll": true,
+  "ruff.nativeServer": "on",
+  "python.testing.pytestEnabled": true,
+  "python.testing.autoTestDiscoverOnSaveEnabled": true,
+  // ╔══════════════════════════════════════════════════════════════════════════╗
+  // ║                          📄 YAML                                        ║
+  // ╚══════════════════════════════════════════════════════════════════════════╝
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.autoIndent": "keep",
+    "editor.rulers": [
+      120
+    ],
+    "editor.semanticHighlighting.enabled": true
+  },
+  "yaml.schemas": {
+    "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.32.0-standalone-strict/all.json": [
+      "**/*.k8s.yaml",
+      "**/*.k8s.yml",
+      "**/k8s/**/*.yaml",
+      "**/k8s/**/*.yml",
+      "**/kubernetes/**/*.yaml",
+      "**/kubernetes/**/*.yml",
+      "**/manifests/**/*.yaml",
+      "**/manifests/**/*.yml",
+      "**/deploy/**/*.yaml",
+      "**/deploy/**/*.yml"
+    ]
+  },
+  "yaml.format.enable": true,
+  "yaml.format.singleQuote": false,
+  "yaml.format.bracketSpacing": true,
+  "yaml.format.proseWrap": "preserve",
+  "yaml.format.printWidth": 120,
+  // ╔══════════════════════════════════════════════════════════════════════════╗
+  // ║                    📝 JSON / JSONC / MARKDOWN                            ║
+  // ╚══════════════════════════════════════════════════════════════════════════╝
+  "[json]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.rulers": [],
+    "editor.quickSuggestions": {
+      "other": false,
+      "comments": false,
+      "strings": false
+    }
+  },
+  // ╔══════════════════════════════════════════════════════════════════════════╗
+  // ║               🐳 DOCKERFILE / 🐚 SHELL / 📦 MAKEFILE / 🔧 TOML        ║
+  // ╚══════════════════════════════════════════════════════════════════════════╝
+  "[dockerfile]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
+  },
+  "[shellscript]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.rulers": [
+      80
+    ]
+  },
+  "[makefile]": {
+    "editor.insertSpaces": false,
+    "editor.detectIndentation": false
+  },
+  "[toml]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  // ╔══════════════════════════════════════════════════════════════════════════╗
+  // ║                          ☸️  KUBERNETES                                  ║
+  // ╚══════════════════════════════════════════════════════════════════════════╝
+  "vs-kubernetes": {
+    "vscode-kubernetes.helm-path-mac": "/Users/olehnovosad/.vs-kubernetes/tools/helm/darwin-arm64/helm"
+  },
+  // ╔══════════════════════════════════════════════════════════════════════════╗
+  // ║                        ⚠️ ERROR LENS                                    ║
+  // ╚══════════════════════════════════════════════════════════════════════════╝
+  "errorLens.enabled": true,
+  "errorLens.enabledDiagnosticLevels": [
+    "error",
+    "warning"
+  ],
+  "errorLens.fontSize": "85%",
+  "errorLens.fontWeight": "500",
+  "errorLens.delay": 500,
+  "errorLens.messageMaxChars": 120,
+  "errorLens.gutterIconsEnabled": true,
+  // ╔══════════════════════════════════════════════════════════════════════════╗
+  // ║                          💻 TERMINAL                                    ║
+  // ╚══════════════════════════════════════════════════════════════════════════╝
+  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.scrollback": 50000,
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.gpuAcceleration": "on",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "terminal.integrated.defaultProfile.linux": "bash",
+  // ╔══════════════════════════════════════════════════════════════════════════╗
+  // ║                          📊 DIFF EDITOR                                 ║
+  // ╚══════════════════════════════════════════════════════════════════════════╝
+  "diffEditor.ignoreTrimWhitespace": false,
+  // ╔══════════════════════════════════════════════════════════════════════════╗
+  // ║                          🌐 GIT                                         ║
+  // ╚══════════════════════════════════════════════════════════════════════════╝
+  "git.autofetch": true,
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "git.inputValidationSubjectLength": 72,
+  "git.decorations.enabled": true,
+  "git.openAfterClone": "always",
+  "git.pruneOnFetch": true,
+  "scm.defaultViewMode": "tree",
+  // ╔══════════════════════════════════════════════════════════════════════════╗
+  // ║                          🐛 DEBUG                                       ║
+  // ╚══════════════════════════════════════════════════════════════════════════╝
+  "debug.openDebug": "openOnDebugBreak",
+  // ╔══════════════════════════════════════════════════════════════════════════╗
+  // ║                          🤖 COPILOT & EXTENSIONS                        ║
+  // ╚══════════════════════════════════════════════════════════════════════════╝
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": true,
+    "scminput": false
+  },
+  "vsicons.dontShowNewVersionMessage": true,
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+  // ╔══════════════════════════════════════════════════════════════════════════╗
+  // ║                        🔒 PRIVACY & TRUST                               ║
+  // ╚══════════════════════════════════════════════════════════════════════════╝
+  "telemetry.telemetryLevel": "off",
+  "security.workspace.trust.untrustedFiles": "prompt",
+  "json.schemaDownload.trustedDomains": {
+    "https://schemastore.azurewebsites.net/": true,
+    "https://raw.githubusercontent.com/microsoft/vscode/": true,
+    "https://raw.githubusercontent.com/devcontainers/spec/": true,
+    "https://www.schemastore.org/": true,
+    "https://json.schemastore.org/": true,
+    "https://json-schema.org/": true,
+    "https://developer.microsoft.com/json-schemas/": true,
+    "https://raw.githubusercontent.com": true
+  }
 }
